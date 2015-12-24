@@ -1,0 +1,9 @@
+[submodule "package/shadowsocks-libev"]
+	path = package/shadowsocks-libev
+	url = https://github.com/shadowsocks/openwrt-shadowsocks.git
+[submodule "package/openwrt-dist-luci"]
+	path = package/openwrt-dist-luci
+	url = https://github.com/aa65535/openwrt-dist-luci.git
+[submodule "package/chinadns"]
+	path = package/chinadns
+	url = https://github.com/aa65535/openwrt-chinadns.git
