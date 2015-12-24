@@ -2,7 +2,7 @@
 git checkout 4530
 git stash
 git checkout master
-git pull origin
+git pull origin master
 git checkout 4530
 git merge master
 ./scripts/feeds update -a
