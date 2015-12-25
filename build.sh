@@ -1,10 +1,10 @@
 #!/bin/bash
 git checkout cc4530
 git stash
-git checkout master
-git pull origin master
+git checkout chaos_calmer
+git pull origin chaos_calmer
 git checkout cc4530
-git merge master
+git merge chaos_calmer
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 #read -n1 -p "Press any key to update custom packages..."
