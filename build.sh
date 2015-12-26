@@ -6,6 +6,8 @@ git pull origin chaos_calmer
 git checkout cc4530
 git merge chaos_calmer
 ./scripts/feeds update -a
+rm -rf ./feeds/packages/libs/libsodium
+rm -rf ./feeds/packages/net/dnscrypt-proxy
 ./scripts/feeds install -a
 #read -n1 -p "Press any key to update custom packages..."
 
