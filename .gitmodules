@@ -7,3 +7,6 @@
 [submodule "package/chinadns"]
 	path = package/chinadns
 	url = https://github.com/aa65535/openwrt-chinadns.git
+[submodule "package/luci-app-shadowsocks"]
+	path = package/luci-app-shadowsocks
+	url = https://github.com/shadowsocks/luci-app-shadowsocks.git
