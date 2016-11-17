@@ -1,6 +1,6 @@
-diff -ur openvpn-2.3.12/src/openvpn/forward.c openvpn-2.3.12_new/src/openvpn/forward.c
---- openvpn-2.3.12/src/openvpn/forward.c	2016-08-23 22:16:28.000000000 +0800
-+++ openvpn-2.3.12_new/src/openvpn/forward.c	2016-09-06 17:53:22.916279875 +0800
+diff -ur openvpn-2.3.13/src/openvpn/forward.c openvpn-2.3.13_new/src/openvpn/forward.c
+--- openvpn-2.3.13/src/openvpn/forward.c	2016-11-03 16:52:28.000000000 +0800
++++ openvpn-2.3.13_new/src/openvpn/forward.c	2016-11-17 16:57:24.107468621 +0800
 @@ -674,7 +674,10 @@
  
    status = link_socket_read (c->c2.link_socket,
@@ -25,10 +25,10 @@ diff -ur openvpn-2.3.12/src/openvpn/forward.c openvpn-2.3.12_new/src/openvpn/for
  
  #ifdef ENABLE_SOCKS
  	    /* Undo effect of prepend */
-Only in openvpn-2.3.12_new/src/openvpn: forward.c.orig
-diff -ur openvpn-2.3.12/src/openvpn/options.c openvpn-2.3.12_new/src/openvpn/options.c
---- openvpn-2.3.12/src/openvpn/options.c	2016-08-23 22:16:22.000000000 +0800
-+++ openvpn-2.3.12_new/src/openvpn/options.c	2016-09-06 17:53:54.704279473 +0800
+Only in openvpn-2.3.13_new/src/openvpn: forward.c.orig
+diff -ur openvpn-2.3.13/src/openvpn/options.c openvpn-2.3.13_new/src/openvpn/options.c
+--- openvpn-2.3.13/src/openvpn/options.c	2016-11-03 16:52:28.000000000 +0800
++++ openvpn-2.3.13_new/src/openvpn/options.c	2016-11-17 16:57:41.859468303 +0800
 @@ -792,6 +792,9 @@
    o->max_routes = MAX_ROUTES_DEFAULT;
    o->resolve_retry_seconds = RESOLV_RETRY_INFINITE;
@@ -39,7 +39,7 @@ diff -ur openvpn-2.3.12/src/openvpn/options.c openvpn-2.3.12_new/src/openvpn/opt
  #ifdef ENABLE_OCC
    o->occ = true;
  #endif
-@@ -907,6 +910,10 @@
+@@ -908,6 +911,10 @@
    setenv_int_i (es, "local_port", e->local_port, i);
    setenv_str_i (es, "remote", e->remote, i);
    setenv_int_i (es, "remote_port", e->remote_port, i);
@@ -50,7 +50,7 @@ diff -ur openvpn-2.3.12/src/openvpn/options.c openvpn-2.3.12_new/src/openvpn/opt
  
  #ifdef ENABLE_HTTP_PROXY
    if (e->http_proxy_options)
-@@ -1366,6 +1373,9 @@
+@@ -1367,6 +1374,9 @@
    SHOW_INT (connect_retry_seconds);
    SHOW_INT (connect_timeout);
    SHOW_INT (connect_retry_max);
@@ -60,7 +60,7 @@ diff -ur openvpn-2.3.12/src/openvpn/options.c openvpn-2.3.12_new/src/openvpn/opt
  
  #ifdef ENABLE_HTTP_PROXY
    if (o->http_proxy_options)
-@@ -5131,6 +5141,46 @@
+@@ -5132,6 +5142,46 @@
        options->proto_force = proto_force;
        options->force_connection_list = true;
      }
@@ -107,9 +107,10 @@ diff -ur openvpn-2.3.12/src/openvpn/options.c openvpn-2.3.12_new/src/openvpn/opt
  #ifdef ENABLE_HTTP_PROXY
    else if (streq (p[0], "http-proxy") && p[1])
      {
-diff -ur openvpn-2.3.12/src/openvpn/options.h openvpn-2.3.12_new/src/openvpn/options.h
---- openvpn-2.3.12/src/openvpn/options.h	2016-08-23 22:16:22.000000000 +0800
-+++ openvpn-2.3.12_new/src/openvpn/options.h	2016-09-06 17:54:04.096279355 +0800
+Only in openvpn-2.3.13_new/src/openvpn: options.c.orig
+diff -ur openvpn-2.3.13/src/openvpn/options.h openvpn-2.3.13_new/src/openvpn/options.h
+--- openvpn-2.3.13/src/openvpn/options.h	2016-11-03 16:52:28.000000000 +0800
++++ openvpn-2.3.13_new/src/openvpn/options.h	2016-11-17 16:57:49.087468174 +0800
 @@ -100,6 +100,9 @@
    int connect_retry_max;
    int connect_timeout;
@@ -120,9 +121,9 @@ diff -ur openvpn-2.3.12/src/openvpn/options.h openvpn-2.3.12_new/src/openvpn/opt
  #ifdef ENABLE_HTTP_PROXY
    struct http_proxy_options *http_proxy_options;
  #endif  
-diff -ur openvpn-2.3.12/src/openvpn/socket.c openvpn-2.3.12_new/src/openvpn/socket.c
---- openvpn-2.3.12/src/openvpn/socket.c	2016-08-23 22:16:22.000000000 +0800
-+++ openvpn-2.3.12_new/src/openvpn/socket.c	2016-09-06 17:54:09.108279291 +0800
+diff -ur openvpn-2.3.13/src/openvpn/socket.c openvpn-2.3.13_new/src/openvpn/socket.c
+--- openvpn-2.3.13/src/openvpn/socket.c	2016-11-03 16:52:28.000000000 +0800
++++ openvpn-2.3.13_new/src/openvpn/socket.c	2016-11-17 16:57:56.139468048 +0800
 @@ -52,6 +52,53 @@
    IPv6_TCP_HEADER_SIZE,
  };
@@ -177,10 +178,10 @@ diff -ur openvpn-2.3.12/src/openvpn/socket.c openvpn-2.3.12_new/src/openvpn/sock
  /*
   * Convert sockflags/getaddr_flags into getaddr_flags
   */
-Only in openvpn-2.3.12_new/src/openvpn: socket.c.orig
-diff -ur openvpn-2.3.12/src/openvpn/socket.h openvpn-2.3.12_new/src/openvpn/socket.h
---- openvpn-2.3.12/src/openvpn/socket.h	2016-08-23 22:16:22.000000000 +0800
-+++ openvpn-2.3.12_new/src/openvpn/socket.h	2016-09-06 17:54:14.364279225 +0800
+Only in openvpn-2.3.13_new/src/openvpn: socket.c.orig
+diff -ur openvpn-2.3.13/src/openvpn/socket.h openvpn-2.3.13_new/src/openvpn/socket.h
+--- openvpn-2.3.13/src/openvpn/socket.h	2016-11-03 16:52:28.000000000 +0800
++++ openvpn-2.3.13_new/src/openvpn/socket.h	2016-11-17 16:58:02.011467943 +0800
 @@ -245,6 +245,10 @@
  #endif
  };
@@ -289,4 +290,4 @@ diff -ur openvpn-2.3.12/src/openvpn/socket.h openvpn-2.3.12_new/src/openvpn/sock
    if (proto_is_udp(sock->info.proto)) /* unified UDPv4 and UDPv6 */
      {
        return link_socket_write_udp (sock, buf, to);
-Only in openvpn-2.3.12_new/src/openvpn: socket.h.orig
+Only in openvpn-2.3.13_new/src/openvpn: socket.h.orig
