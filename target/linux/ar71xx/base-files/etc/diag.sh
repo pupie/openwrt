@@ -86,6 +86,9 @@ get_status_led() {
 	dragino2)
 		status_led="dragino2:red:system"
 		;;
+	dw33d)
+		status_led="dw33d:blue:status"
+		;;
 	eap300v2)
 		status_led="engenius:blue:power"
 		;;
@@ -274,6 +277,7 @@ get_status_led() {
 	tl-wr841n-v1 | \
 	tl-wr841n-v7 | \
 	tl-wr841n-v8 | \
+	tl-wr841n-v11 | \
 	tl-wa830re-v2 | \
 	tl-wr842n-v2 | \
 	tl-wr941nd | \

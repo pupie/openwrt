@@ -12,6 +12,7 @@ rm -rf ./feeds/packages/net/dnscrypt-proxy
 #read -n1 -p "Press any key to update custom packages..."
 
 #update git submodule packages
+git submodule foreach git checkout master
 git submodule foreach git pull origin master
 #read -n1 -p "Press any key to continue..."
 git stash pop

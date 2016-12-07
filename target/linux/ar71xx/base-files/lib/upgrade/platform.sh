@@ -182,6 +182,7 @@ platform_check_image() {
 	ap96 | \
 	bxu2000n-2-a1 | \
 	db120 | \
+	dw33d | \
 	f9k1115v2 |\
 	hornet-ub | \
 	mr12 | \
@@ -357,6 +358,7 @@ platform_check_image() {
 	tl-wr841n-v7 | \
 	tl-wr841n-v8 | \
 	tl-wr841n-v9 | \
+	tl-wr841n-v11 | \
 	tl-wr842n-v2 | \
 	tl-wr941nd | \
 	tl-wr941nd-v5 | \
