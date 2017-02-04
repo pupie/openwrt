@@ -8,15 +8,17 @@ git merge chaos_calmer
 ./scripts/feeds update -a
 rm -rf ./feeds/packages/libs/libsodium
 rm -rf ./feeds/packages/net/dnscrypt-proxy
-./scripts/feeds install -a
+rm -rf package/feeds/openwrt-feeds
+git clone https://github.com/aa65535/openwrt-feeds.git package/feeds/openwrt-feeds
+rm -rf ./package/feeds/openwrt-feeds/packages/libsodium
 #read -n1 -p "Press any key to update custom packages..."
 
 #update git submodule packages
 git submodule foreach git checkout master
 git submodule foreach git pull origin master
+./scripts/feeds install -a
 #read -n1 -p "Press any key to continue..."
 git stash pop
-
 make defconfig
 
 echo "Make clean? Please answer yes or no."
