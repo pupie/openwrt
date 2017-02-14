@@ -1,6 +1,6 @@
 diff -ur openvpn-2.4.0/src/openvpn/forward.c openvpn-2.4.0_new/src/openvpn/forward.c
 --- openvpn-2.4.0/src/openvpn/forward.c	2016-12-26 03:51:00.000000000 -0800
-+++ openvpn-2.4.0_new/src/openvpn/forward.c	2017-02-03 05:37:41.262640484 -0800
++++ openvpn-2.4.0_new/src/openvpn/forward.c	2017-02-06 05:15:43.344229896 -0800
 @@ -730,7 +730,10 @@
  
      status = link_socket_read(c->c2.link_socket,
@@ -27,7 +27,7 @@ diff -ur openvpn-2.4.0/src/openvpn/forward.c openvpn-2.4.0_new/src/openvpn/forwa
                  link_socket_write_post_size_adjust(&size, size_delta, &c->c2.to_link);
 diff -ur openvpn-2.4.0/src/openvpn/options.c openvpn-2.4.0_new/src/openvpn/options.c
 --- openvpn-2.4.0/src/openvpn/options.c	2016-12-26 03:51:00.000000000 -0800
-+++ openvpn-2.4.0_new/src/openvpn/options.c	2017-02-03 05:38:00.286314482 -0800
++++ openvpn-2.4.0_new/src/openvpn/options.c	2017-02-06 05:15:48.471776996 -0800
 @@ -811,6 +811,9 @@
      o->resolve_retry_seconds = RESOLV_RETRY_INFINITE;
      o->resolve_in_advance = false;
@@ -107,7 +107,7 @@ diff -ur openvpn-2.4.0/src/openvpn/options.c openvpn-2.4.0_new/src/openvpn/optio
          struct http_proxy_options *ho;
 diff -ur openvpn-2.4.0/src/openvpn/options.h openvpn-2.4.0_new/src/openvpn/options.h
 --- openvpn-2.4.0/src/openvpn/options.h	2016-12-26 03:51:00.000000000 -0800
-+++ openvpn-2.4.0_new/src/openvpn/options.h	2017-02-03 05:38:12.474109384 -0800
++++ openvpn-2.4.0_new/src/openvpn/options.h	2017-02-06 05:15:53.351348431 -0800
 @@ -98,6 +98,9 @@
      int connect_retry_seconds;
      int connect_retry_seconds_max;
@@ -120,7 +120,7 @@ diff -ur openvpn-2.4.0/src/openvpn/options.h openvpn-2.4.0_new/src/openvpn/optio
      const char *socks_proxy_port;
 diff -ur openvpn-2.4.0/src/openvpn/socket.c openvpn-2.4.0_new/src/openvpn/socket.c
 --- openvpn-2.4.0/src/openvpn/socket.c	2016-12-26 03:51:00.000000000 -0800
-+++ openvpn-2.4.0_new/src/openvpn/socket.c	2017-02-03 05:38:19.061999680 -0800
++++ openvpn-2.4.0_new/src/openvpn/socket.c	2017-02-06 05:15:58.854867864 -0800
 @@ -55,6 +55,56 @@
      IPv6_TCP_HEADER_SIZE,
  };
@@ -180,7 +180,7 @@ diff -ur openvpn-2.4.0/src/openvpn/socket.c openvpn-2.4.0_new/src/openvpn/socket
   */
 diff -ur openvpn-2.4.0/src/openvpn/socket.h openvpn-2.4.0_new/src/openvpn/socket.h
 --- openvpn-2.4.0/src/openvpn/socket.h	2016-12-26 03:51:00.000000000 -0800
-+++ openvpn-2.4.0_new/src/openvpn/socket.h	2017-02-03 05:38:24.969901978 -0800
++++ openvpn-2.4.0_new/src/openvpn/socket.h	2017-02-06 05:16:04.206403380 -0800
 @@ -249,6 +249,10 @@
  #endif
  };
